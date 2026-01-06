@@ -3,7 +3,12 @@ services:
     name: task-manager
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: gunicorn task_manager.app:app
+    healthCheckPath: /healthcheck
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0
+        value: 3.11
+      - key: SECRET_KEY
+        value: REPLACE_ME
+      - key: DATABASE_URL
+        value: REPLACE_ME
