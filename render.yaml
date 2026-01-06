@@ -4,6 +4,11 @@ services:
     env: python
     buildCommand: pip install -r flask_app/requirements.txt
     startCommand: cd flask_app && gunicorn app:app
+    healthCheckPath: /healthcheck
     envVars:
       - key: PYTHON_VERSION
-        value: 3.8.12
+        value: 3.11
+      - key: SECRET_KEY
+        value: REPLACE_ME
+      - key: DATABASE_URL
+        value: REPLACE_ME
