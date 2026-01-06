@@ -3,7 +3,7 @@ services:
     name: task-manager
     env: python
     buildCommand: pip install -r flask_app/requirements.txt
-    startCommand: cd flask_app && gunicorn app:app
+    startCommand: gunicorn flask_app.app:app
     healthCheckPath: /healthcheck
     envVars:
       - key: PYTHON_VERSION
